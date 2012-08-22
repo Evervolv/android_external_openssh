@@ -902,10 +902,10 @@ do_motd(void)
 
 	if (options.print_motd) {
 #ifdef HAVE_LOGIN_CAP
-		f = fopen(login_getcapstr(lc, "welcome", "/etc/motd",
-		    "/etc/motd"), "r");
+		f = fopen(login_getcapstr(lc, "welcome", "/system/etc/ssh/sshd_motd",
+		    "/system/etc/ssh/sshd_motd"), "r");
 #else
-		f = fopen("/etc/motd", "r");
+		f = fopen("/system/etc/ssh/sshd_motd", "r");
 #endif
 		if (f) {
 			while (fgets(buf, sizeof(buf), f))
